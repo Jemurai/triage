@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @project.priority %>
+</p>
+
+<p>
+  <b>Rank:</b>
+  <%= @project.rank %>
+</p>
+
+<p>
+  <b>Tier:</b>
+  <%= @project.tier %>
+</p>
+
+<p>
+  <b>Verified:</b>
+  <%= @project.verified %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
