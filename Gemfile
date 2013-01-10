@@ -51,3 +51,6 @@ gem "simple_form", ">= 2.0.4"
 gem "stripe", ">= 1.7.4"
 gem "stripe_event", ">= 0.4.0"
 gem "quiet_assets", ">= 1.0.1", :group => :development
+gem "ckeditor"
+gem "carrierwave"
+gem "mini_magick"

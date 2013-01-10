@@ -19,6 +19,8 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+
+
   <div class="field">
     <%= f.label :priority %><br />
     <%= f.number_field :priority %>
@@ -35,6 +37,14 @@
     <%= f.label :verified %><br />
     <%= f.check_box :verified %>
   </div>
+
+  <div class="clearfix">
+    <%= f.label :rich_description %><br />
+	<%= f.cktext_area :rich_description, :value => "Default value", :id => "rich_text_description" %>
+	
+	<%# f.text_area :rich_description, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

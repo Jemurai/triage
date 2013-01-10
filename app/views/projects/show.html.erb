@@ -30,6 +30,15 @@
   <%= @project.verified %>
 </p>
 
+<p>
+	<b>Rich Description "Normal"</b>
+	<%= @project.rich_description %>
+</p>
+
+<p>
+	<b>Rich Description Raw</b>
+	<%= raw @project.rich_description %>
+</p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
