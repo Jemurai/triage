@@ -1,0 +1,21 @@
+<div class="container">
+<div class="hero-unit clearfix">
+
+<div class="span8">
+<h2>Resend confirmation instructions</h2>
+</div>
+
+<div class="span4">
+<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, :required => true %>
+  </div>
+
+    <%= f.button :submit, "Resend", :class=>"btn btn-inverse btn-large" %>
+<% end %>
+</div>
+<div class="span4 pull-right">
+	<%= render "devise/shared/links" %>
+</div>

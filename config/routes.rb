@@ -1,9 +1,26 @@
 Triage::Application.routes.draw do
+  
+  root :to => "dashboard#show"
+
+  get "dashboard/show"
+
+#  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  
+  resources :users, :only => [:show, :index]
+  
   mount Ckeditor::Engine => '/ckeditor'
 
-  devise_for :users
-
   resources :projects
+
+  authenticated :user do
+    root :to => 'dashboard#show'
+  end
+
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404'
+  end
+  
 
 
   # The priority is based upon order of creation:
@@ -55,8 +72,7 @@ Triage::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'projects#index'
-
+  
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

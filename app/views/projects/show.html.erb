@@ -1,44 +1,59 @@
-<p id="notice"><%= notice %></p>
+<h1>Project: <%= raw @project.name %> </h1>	
+<section id="content">
+<div class="sub-content">
+  <div class="container">
+	<div class="row">
+		<div class="span10 offset1">
+			<h4>Project: <%= @project.name %></h4>
+		</div>
+		
+		<div class="span3 offset1"> 
+			<p>
+  				<b>Name:</b>
+  				<%= @project.name %>
+			</p>
+			<p>
+  				<b>Description:</b>
+  				<%= @project.description %>
+			</p>
+		</div>
 
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
+		<div class="span4">
+			<p>
+  				<b>Priority:</b>
+  				<%= @project.priority %>
+			</p>
+			<p>
+  				<b>Rank:</b>
+  				<%= @project.rank %>
+			</p>
+			<p>
+  				<b>Tier:</b>
+  				<%= @project.tier %>
+			</p>
+			<p>
+  				<b>Verified:</b>
+  				<%= @project.verified %>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8 offset1">
+			<p>
+				<b>Rich Description:</b>
+				<%= raw @project.rich_description %>
+			</p>
+		</div>
+	</div>
 
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
+	<div class="row">
+		<div class="span8 offset1">
+			<%= link_to 'Edit', edit_project_path(@project), :class=>"btn btn-info" %> 
+			<%= link_to 'Back', projects_path, :class=>"btn btn-info" %>
+		</div>
+	</div>
+	
+	</div>
+	</div>
+</section>
 
-<p>
-  <b>Priority:</b>
-  <%= @project.priority %>
-</p>
-
-<p>
-  <b>Rank:</b>
-  <%= @project.rank %>
-</p>
-
-<p>
-  <b>Tier:</b>
-  <%= @project.tier %>
-</p>
-
-<p>
-  <b>Verified:</b>
-  <%= @project.verified %>
-</p>
-
-<p>
-	<b>Rich Description "Normal"</b>
-	<%= @project.rich_description %>
-</p>
-
-<p>
-	<b>Rich Description Raw</b>
-	<%= raw @project.rich_description %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>

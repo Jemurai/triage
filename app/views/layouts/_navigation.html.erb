@@ -1,0 +1,98 @@
+<header class="navbar navbar-fixed-top">
+  <nav class="navbar-inner">
+    <div class="container">
+	
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+</a>
+
+<div id="navbar" class="navbar navbar-static">
+
+    	<div class="container" style="width: auto;">
+        	<a class="brand" href="/">Triage</a>
+            
+				<%# Left justified items %>				 
+				<ul class="nav" role="navigation">
+					<% if user_signed_in? %>
+				  		<li class="nav">
+						<li><a href="#">Bundles:</a></li>
+						<li class="dropdown">                                                                                                                                 
+		                	<a href="#" id="dropSMB" role="button" class="dropdown-toggle" 
+								data-toggle="dropdown">Business<b class="caret"></b></a>
+		                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropSMB">   
+									<li><a href="#">Dashboard</a></li>
+									<li><a href="#">Survey</a></li>
+									<li><a href="#">Recommendations</a></li>
+		                      </ul>
+		                    </li>
+						<li class="dropdown">                                                                                                                                 
+	                      <a href="#" id="dropAppSec" role="button" class="dropdown-toggle" 
+								data-toggle="dropdown">AppSec<b class="caret"></b></a>
+	                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropAppSec">   
+								<li><%= link_to 'Dashboard', projects_path  %></li>
+								<li><%= link_to 'List Projects', projects_path  %></li>
+						  		<li><%= link_to 'New Project', new_project_path  %></li>
+	                      </ul>
+	                    </li>
+						<li class="dropdown">                                                                                                                                 
+	                      <a href="#" id="dropPolicy" role="button" class="dropdown-toggle" 
+							data-toggle="dropdown">Policy<b class="caret"></b></a>
+	                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropPolicy">   
+								<li><a href="#">Meta Policy</a></li>
+								<li><a href="#">Dashboard</a></li>
+								<li><a href="#">List Policies</a></li>
+								<li><a href="#">New Policy</a></li>
+								<li><a href="#">Recommendations</a></li>
+	                      </ul>
+	                    </li>
+				  	</li>
+				  	
+					<% end %>
+				</ul>
+					
+				<%# Right justified items %>				 
+				<ul class="nav pull-right">
+				
+				<% if user_signed_in? %>
+					<li class="nav pull-right">
+					<li class="dropdown">                                                                                                                                 
+		            	<a href="#" id="dropPersonal" role="button" class="dropdown-toggle" 
+							data-toggle="dropdown">Personal Security<b class="caret"></b></a>
+		                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropPersonal">   
+							<li><a href="#">Dashboard</a></li>
+							<li><a href="#">Survey</a></li>
+							<li><a href="#">Recommendations</a></li>
+		                    </ul>
+		            </li>
+					</li>
+				   	<li class="nav pull-right">
+				   		<%= link_to "Logout #{current_user.email}", destroy_user_session_path, :method=>'delete' %>        
+				   	</li>
+					<li class="nav pull-right">
+				   		<%= link_to 'Edit account', edit_user_registration_path %>
+				   	</li>
+				    
+					<% if current_user.has_role? :admin %>
+				   	<% end %>
+				
+				<% else %>
+				   	<li  class="nav pull-right">
+				   		<%= link_to 'Sign up', new_user_registration_path %>
+				   	</li>
+					<li  class="nav pull-right">
+				    	<%= link_to 'Sign In', new_user_session_path %>
+					</li>
+			  	<% end %>
+				 
+			 	</div>
+			</div>
+ 		</div>
+  	</nav>
+</header>
+
+<script type="text/javascript">
+	$('.dropdown-toggle').dropdown()
+</script>
+

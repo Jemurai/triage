@@ -1,0 +1,44 @@
+<%# This is the goal page to test our landing page #>
+<% finished("registration_page") %>
+
+
+<section id="content">
+<div class="sub-content">
+  <div class="container">
+
+	
+	<div class="pull-left span4">
+	      	<h4>Sign up with Jemurai</h4>
+
+			<!-- TODO:  Alternate content. --> 
+
+    </div>
+
+    
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "span3 offset1" }) do |f| %>
+  <%= f.error_notification %>
+            <h4> Sign Up </h4>
+    	<%= f.input :email, :autofocus => true, :placeholder => 'Your Email' %>
+    	<%= f.input :password, :placeholder => 'Your Password' %>
+    	<%= f.input :password_confirmation, :placeholder => 'Your Password' %>
+		<input type="hidden" id="user_timezone" name="user[timezone]" value="Eastern Time (US & Canada)" />
+		
+    	<div class="control-group">
+    		<div class="controls">
+    		<%= f.button :submit, "Create My Account", :class=>"btn btn_" %>
+  		</div>
+  </div>
+
+    
+
+<% end %>
+
+<script>
+$(document).ready(function(){
+    $('#user_timezone').set_timezone(); 
+});
+</script>
+
+</div>
+</div>
+</section>

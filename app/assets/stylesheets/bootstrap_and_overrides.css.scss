@@ -1,0 +1,425 @@
+// TODO: update color variables 
+//  bundle exec rake assets:precompile RAILS_ENV=development 
+// http://railscasts.com/episodes/268-sass-basics?autoplay=true
+
+$white: #ffffff;
+$black: #000000;
+$darkgray: #464646;
+$lightgray: #686868;
+// $red: #990000;
+$navbarHeight:                    50px;
+$navbarBackground:                $black;
+$navbarBackgroundHighlight:       #686868;
+$navbarText:                      #C0C0C0;
+$navbarLinkColor:                 #C0C0C0;
+$navbarLinkColorHover:            #fff;
+$navbarLinkColorActive:           $navbarLinkColorHover;
+$bodyBackground: $black;
+$linkColor:      $white;
+$linkColorHover: darken($linkColor, 15%);
+$tableBackgroundAccent: #000;
+$tableBackgroundHover: #f5f5f5;
+$tableBorder: #ddd;
+$tableBackground: lighten($bodyBackground, 10%);
+$textColor: #99978F;
+$hrBorder: #99978F;
+
+
+@mixin rounded-corners($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius; 
+  -o-border-radius: $radius;                                                                                                                
+  border-radius: $radius;
+}
+
+@mixin text-shadow($h, $v, $radius, $color) {
+  text-shadow: $h $v $radius $color;
+  filter: dropshadow(color=$color, offx=$h, offy=$v);
+}
+
+@mixin box-shadow($shadow){
+
+}
+
+@import "bootstrap";
+body { padding-top: 50px;}
+@import "bootstrap-responsive";
+
+
+.main {
+  background-color: $white;
+  // font color
+  color: $black;
+}
+
+.btn-primary:visited, .btn-warning:visited, .btn-danger:visited,  .btn-success:visited, .btn-info:visited,  .btn-inverse:visited {
+  color: $white;
+  @include rounded-corners(5px);
+}
+
+
+// This sets the background and overwrites bootstraps: html,body{background-color:#ffffff;}
+html { background: $white; }
+		
+.hero-unit {
+  background:$darkgray;
+  color: $white;  
+  padding: 20px;
+  margin-bottom: 0px;
+  
+  h1 {
+   @include text-shadow(1px, 1px, 2px, #000);                                                                                                   
+  
+   span {
+     color:$white;
+     @include text-shadow(1px, 1px, 2px, #000);                                                                                                   
+     }
+  }
+  
+  p {
+    @include text-shadow(1px, 1px, 2px, #000);                                                                                                   
+  }
+  
+  input {
+    @include box-shadow(inset #2d2d2d 1px 0px 3px);
+  }
+}
+
+.well {
+background-color: $lightgray;
+border: 1px solid #eee;
+border: 1px solid rgba(0, 0, 0, 0.05);
+
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0,0,0,.15);
+  }
+}
+
+.content {
+  background-color: $white;  
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  @include rounded-corners(6px);
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.navbar-inner-footer{
+  min-height: 30px;
+}
+
+.thumbnail{
+ background:$darkgray;
+ .caption{
+  position:relative;
+  color:#ccc9c9;
+  
+  h5{
+   position:absolute;
+   top:-19px;
+   left:10px;
+   font-size:2em;
+   color:#fff;
+   @include text-shadow(1px, 1px, 2px, #000);                                                                                                   
+   }
+ }
+}
+
+////////////////
+Scans
+/////////////////
+#scan-home {
+background:$white;
+}
+
+.container-fluid{
+color: $black;
+}
+
+.scan-span {
+padding-bottom: 20px;
+padding-top: 20px;
+color: $black;
+}
+
+.row #scan-home{
+padding-bottom: 33px;
+}
+
+
+///Test///////
+
+.test {
+color: $black;
+	.table {
+    	color: $white;
+  	}
+}
+
+
+///////////////////
+Plans
+///////////////////
+
+#showcase {
+  position: relative;
+  padding-bottom: 33px;
+}
+
+#showcase-content {
+  height: 341px;
+}
+
+#showcase h2 {
+  color: #fff;
+  font-size: 130%;
+  margin-bottom: 3px;
+}
+
+#showcase .inner-content {
+  padding: 27px 0;
+}
+
+.sc-block {
+  line-height: 180%;
+  font-size: 120%;
+  width: 321px;
+  margin-bottom: 18px;
+}
+
+.plan-showcase #showcase-content {
+  height: 375px;
+}
+
+#plans {
+  margin: 18px 0;
+}
+
+ul.plan-grid li.plan {
+  width:  268px;
+  float:  left;
+  margin:  0 19px 0 0;
+  line-height:  140%;
+  @include rounded-corners(3px);
+  text-align: center;
+  color: #333;
+  font-size: 120%;
+}
+
+ul.plan-grid li.plan.last {
+  margin-right:  0;
+}
+
+#plans h2 {
+  padding: 6px 9px;
+  background: none;
+  font-size: 82%;
+  text-transform: uppercase;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright:3px;
+}
+
+.plan-details {
+  margin: 12px 0 18px 0;
+  line-height: 150%;
+}
+
+.plan .pname {
+  font-weight: bold;
+  display: block;
+  font-size: 200%;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.plan .pstats {
+  margin: 15px 0 9px 0;
+  font-size: 110%;
+  line-height: 150%;
+}
+
+
+#plans #gold { background: #ff9; }
+#gold h2 {
+  background: #dbb42e;
+  color: #6e5706;
+}
+#gold .pname, #gold .pprice { color: #e1af03; }
+
+#plans #silver { background: #eaeaea; }
+#silver h2 {
+  background: #b6b6b6;
+  color: #4a4a4a;
+}
+#silver .pname, #silver .pprice { color: #838383; }
+
+#plans #bronze { background: #ded8c8; }
+#bronze h2 {
+  background: #c4bba1;
+  color: #413d31;
+}
+#bronze .pname, #bronze .pprice { color: #5a5548; }
+
+#plans #free { background: #00FF00; }
+#free h2 {
+  background: #00CC00;
+  color: #413d31;
+}
+#free .pname, #free .pprice { color: #000000; }
+
+.test .table {
+    background-color: white;
+    color: black;
+}
+
+
+#hor-minimalist-a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-collapse: collapse;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+    font-size: 12px;
+    text-align: left;
+    width: 1000px;
+}
+#hor-minimalist-a th {
+    border-bottom: 2px solid $black;
+    color: $black;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 8px;
+}
+#hor-minimalist-a td {
+    color: $black;
+    padding: 9px 8px 0;
+    border-bottom: 1px solid $black;
+}
+
+
+table{
+	display:table;				/* --- Defines a table --- */
+}
+tr{
+	display:table-row;			/* --- Defines a table row --- */
+}
+thead{
+	display:table-header-group;	/* --- Defines a table header group --- */
+}
+tbody{
+	display:table-row-group;	/* --- Defines a table row group --- */
+}
+tfoot{
+	display:table-footer-group;	/* --- Defines a table footer group --- */
+}
+col{
+	display:table-column;		/* --- Defines a table column --- */
+}
+colgroup{
+	display:table-column-group;	/* --- Defines a table column group --- */
+}
+td,
+th{
+	display:table-cell;			/* --- Defines a table cell --- */
+}
+caption{
+	display:table-caption;		/* --- Defines a table caption --- */
+}
+
+.table{ 
+	display:table;
+}
+.table-head{
+ 	display:table-header-group;
+}
+.trow{
+	display:table-row;
+}
+.column{
+	display:table-cell;
+}
+
+.table{
+	display:table;			/* Defines a Table */
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	border-bottom:2px solid #dddddd;
+	color:#8d8d8d;
+	margin:10px 0;
+}
+.table-head{
+	 display: table-header-group; /* Defines a table header group */
+}
+.table-head .column{			/* Column inside the table-head */
+	background:#333333;
+	color: silver;
+	border-right:1px solid #5d5d5d;
+	border-bottom:none;
+}
+.table-head .column:hover{		/* Column hover inside the table-head */
+	background:#222222;
+}
+.trow{
+	display:table-row;		/* Defines a table row */
+}
+.trow .column:nth-child(1){		/* First column in a row */
+	border-left:1px solid #eeeeee;
+}
+.trow:last-child .column{		/* column in a last row */
+	border-bottom:none;
+}
+.column{
+	display:table-cell;		/* Defines a table cell */
+	padding:10px 20px;
+	border-bottom:1px solid #eeeeee;
+	border-right:1px solid #eeeeee;
+	line-height:1.8em;
+}
+.column:hover{
+	background:#f9f9f9;
+}
+
+
+
+/* Responsive table */
+@media all and (max-width: 640px){
+	.table,
+	.trow,
+	.column,
+	.column:before{
+		display:block;	/* Converts a table, table row, table column and table column:before into a block element */
+	}
+	.table,
+	.trow .column:last-child{
+		border-bottom:none;
+	}
+	.table-head{
+		position:absolute;	/* Hides table head but not using display none */
+		top:-1000em;
+		left:-1000em;
+	}
+	.trow{
+		border:1px solid #eeeeee;
+		border-top:2px solid #dddddd;
+		border-bottom:2px solid #dddddd;
+		margin:20px 0;
+	}
+	.trow .column:nth-child(1){ /* first column of the row */
+		border-left:none;
+	}
+	.trow .column:last-child{ /* last column of the row */
+		border-right:none;
+	}
+	.trow:last-child .column,
+	.column{ /* Column in the last row and column */
+		border-bottom:1px solid #eeeeee;
+	}
+	.column:before{ /* prints the value of data-label attribute before the column data */
+		font-weight:bold;
+		padding-right:20px;
+		font-size:12px;
+		content:" "attr(data-label)" //";	/* call the attribute value of data-label and adds a string // */
+	}
+}

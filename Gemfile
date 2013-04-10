@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -44,8 +44,8 @@ gem "launchy", ">= 2.1.2", :group => :test
 gem "capybara", ">= 1.1.3", :group => :test
 gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
 gem "bootstrap-sass", ">= 2.1.1.0"
-gem "devise", ">= 2.1.2"
-gem "cancan", ">= 1.6.8"
+gem "devise", ">= 2.2.3"
+gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.4"
 gem "stripe", ">= 1.7.4"

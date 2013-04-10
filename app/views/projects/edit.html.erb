@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Show', project_path(@project), :class=>"btn btn-inverse", :method=>"get" %> |
+<%= link_to 'Back', projects_path, :class=>"btn btn-inverse"  %>

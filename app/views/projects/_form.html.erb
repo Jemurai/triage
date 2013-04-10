@@ -1,4 +1,10 @@
-<%= form_for(@project) do |f| %>
+<section id="content">
+<div class="sub-content">
+  <div class="container">
+  	<div class="row">
+      <div class="span10 offset2">  
+
+<%= simple_form_for(@project) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -11,41 +17,58 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
+	</div>
+	<div class="row">
+	<div class="span3 offset1">
 
-
-  <div class="field">
-    <%= f.label :priority %><br />
-    <%= f.number_field :priority %>
-  </div>
-  <div class="field">
-    <%= f.label :rank %><br />
-    <%= f.number_field :rank %>
-  </div>
-  <div class="field">
-    <%= f.label :tier %><br />
-    <%= f.number_field :tier %>
-  </div>
-  <div class="field">
-    <%= f.label :verified %><br />
-    <%= f.check_box :verified %>
-  </div>
-
-  <div class="clearfix">
-    <%= f.label :rich_description %><br />
-	<%= f.cktext_area :rich_description, :value => "Default value", :id => "rich_text_description" %>
+  		<div class="field">
+    		<%= f.label :name %><br />
+    		<%= f.text_field :name %>
+  		</div>
+  		<div class="field">
+    		<%= f.label :description %><br />
+    		<%= f.text_field :description, :class =>"input-large" %>
+  		</div>
+	</div>
 	
-	<%# f.text_area :rich_description, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
-</div>
+	<div class="span4">
+  		<div class="field">
+    		<%= f.label :priority %><br />
+    		<%= f.number_field :priority %>
+  		</div>
+  		<div class="field">
+    		<%= f.label :rank %><br />
+    		<%= f.number_field :rank %>
+  		</div>
+  		<div class="field">
+    		<%= f.label :tier %><br />
+    		<%= f.number_field :tier %>
+  		</div>
+  		<div class="field">
+    		<%= f.label :verified %><br />
+    		<%= f.check_box :verified %>
+  		</div>
+	</div>
+	</div>
+	
+	<div class="row">
+	<div class="span8 offset1">
+  		<div class="clearfix">
+    		<%= f.label :rich_description %><br />
+			<%= f.cktext_area :rich_description, :value => "Default value", :id => "rich_text_description" %>
+		</div>
+	</div>
+	</div>
+  
+	<div class="span8 offset1 actions">
+    	<%= f.submit :class=>"btn btn-info" %>
+  	</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
+
+  </div>
+</div>
+</div>
+</div>
+</section>
+
