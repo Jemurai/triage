@@ -1,3 +1,41 @@
-<% title "Sign Up" %>
+<h1>Sign Up</h1>
 
-<%= render :partial => ab_test("registration_page", "newa", "newb") %>
+<section id="content">
+<div class="sub-content">
+  <div class="container">
+	<div class="pull-left span4">
+      	<h4>Jemurai Triage</h4>
+            
+            <p>Making it easy to manage application security.</p>
+
+      </div>
+      
+      <div class="pull-right">
+
+        
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "span6" }) do |f| %>
+  <%= f.error_notification %>
+          <h4> Sign Up </h4>
+    	<%= f.input :email, :autofocus => true, :placeholder => 'Your Email' %>
+    	<%= f.input :password, :placeholder => 'Your Password' %>
+    	<%= f.input :password_confirmation, :placeholder => 'Your Password' %>
+		<input type="hidden" id="user_timezone" name="user[timezone]" value="Eastern Time (US & Canada)" />
+		
+    	<div class="control-group">
+    <div class="controls">
+    <%= f.button :submit, "Create My Account", :class=>"btn btn_" %>
+  </div>
+  </div>
+
+  <% end %>  
+</div>
+
+<script>
+$(document).ready(function(){
+    $('#user_timezone').set_timezone(); 
+});
+</script>
+
+</div>
+</div>
+</section>
