@@ -5,10 +5,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-#    @projects = Project.all
     email = current_user.email
-    @projects = Project.where(:owner => email).order("updated_at DESC")
-
+    @projects = Project.find(:all, :conditions=>"owner LIKE '" + email + "'")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
@@ -18,13 +16,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-#    @project = Project.find(params[:id])
-
     @projects = Project.find(:all, :conditions=>"id LIKE #{params[:id]}") 
     @project = @projects[0]
-    
-#    @project = Project.find(:all, :conditions=>["id LIKE ?", "%#{params[:query]}%&"] ) 
-    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
