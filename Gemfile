@@ -54,3 +54,6 @@ gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "ckeditor"
 gem "carrierwave"
 gem "mini_magick"
+gem "execjs"
+gem "therubyracer"
+gem "secure_headers"
