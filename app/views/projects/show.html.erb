@@ -1,4 +1,4 @@
-<h1>Project: <%= raw @project.name %> </h1>	
+<h1>Project: <%= @project.name %> </h1>	
 <section id="content">
 <div class="sub-content">
   <div class="container">
@@ -41,7 +41,7 @@
 		<div class="span8 offset1">
 			<p>
 				<b>Rich Description:</b>
-				<%= raw @project.rich_description %>
+				<%= sanitize @project.rich_description %>
 			</p>
 		</div>
 	</div>

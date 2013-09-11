@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     email = current_user.email
-    @projects = Project.find(:all, :conditions=>"owner LIKE '" + email + "'")
+    @projects = Project.find(:all, :conditions => ["owner LIKE ?", email ] )
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @projects = Project.find(:all, :conditions=>"id LIKE #{params[:id]}") 
+    @projects = Project.find(:all, :conditions=> ["id LIKE ?", params[:id] ] ) 
     @project = @projects[0]
     respond_to do |format|
       format.html # show.html.erb
@@ -78,7 +78,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     
     name = @project.name
-    `rm /tmp/#{name}.log`    
+    # `rm /tmp/#{name}.log`    
     
     @project.destroy
     
