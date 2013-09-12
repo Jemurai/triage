@@ -5,8 +5,14 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    # http://localhost:3000/projects?name='A') or 1=1 --
     email = current_user.email
-    @projects = Project.find(:all, :conditions=>"owner LIKE '" + email + "'")
+  	conditions = "owner LIKE '#{email}'"
+  	if params[:name]
+  		conditions = "name like #{params[:name]} " + conditions
+  	end
+  	@projects = Project.find(:all, :conditions=>conditions)
+  	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
